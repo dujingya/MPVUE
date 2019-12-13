@@ -111,7 +111,6 @@
 import {
     encodeUrlParam
 } from '@/utils/urlTool'
-import * as API from '@/service/api'
 import fetch from '@/service/fetch'
 import {
     login,
@@ -119,7 +118,6 @@ import {
     setStorage
 } from '@/utils/wechat'
 import { setScrollTop } from '@/utils/index'
-import Config from '@/utils/config'
 import bindingphone from '@/components/bindingphone'
 import loading from '@/components/loading'
 export default {
@@ -165,7 +163,7 @@ export default {
             modalList: [],
             collapseList: [],
             index: -1,
-            toView: '',
+            toView: ''
         }
     },
     methods: {
@@ -183,8 +181,8 @@ export default {
             this.showLoading = true
             fetch({
                 method: 'GET',
-                baseUrl: API.baseUrl,
-                api: API.getPackagekinds + '/healthcheck',
+                baseUrl: '',
+                api: '' + '/healthcheck',
                 contentType: 'application/json; charset=UTF-8',
                 params: {}
             }).then(res => {
@@ -224,8 +222,8 @@ export default {
             this.showLoading = true
             fetch({
                 method: 'POST',
-                baseUrl: API.baseUrl,
-                api: API.getPackageList,
+                baseUrl: '',
+                api: '',
                 contentType: 'application/json; charset=UTF-8',
                 params: params
             }).then(res => {
@@ -244,8 +242,8 @@ export default {
             let params = {}
             fetch({
                 method: 'POST',
-                baseUrl: API.baseUrl,
-                api: `${API.listbykind}/${id}`,
+                baseUrl: '',
+                api: '',
                 contentType: 'application/json; charset=UTF-8',
                 params: params
             }).then(res => {
@@ -261,8 +259,8 @@ export default {
         getPackageChildList(id, index) { // 获取套餐子项列表
             fetch({
                 method: 'GET',
-                baseUrl: API.baseUrl,
-                api: `${API.getChildInfo}/${id}`,
+                baseUrl: '',
+                api: '',
                 contentType: 'application/json; charset=UTF-8',
                 params: {}
             }).then(res => {
@@ -314,8 +312,8 @@ export default {
         isLogin() {
             fetch({
                 method: 'GET',
-                baseUrl: API.baseUrl,
-                api: API.isLogin,
+                baseUrl: '',
+                api: '',
                 contentType: 'application/json; charset=UTF-8',
                 params: {}
             }).then(res => {
@@ -366,8 +364,8 @@ export default {
                     this.showLoading = true
                     fetch({
                         method: 'GET',
-                        baseUrl: API.baseUrl,
-                        api: `${API.login}/${Config.orgCode}/${Config.md.appCode}/${res.code}`,
+                        baseUrl: '',
+                        api: '',
                         contentType: 'application/json; charset=UTF-8',
                         params: {}
                     }).then(res => {
@@ -459,7 +457,7 @@ export default {
         }
     },
     created() {
-        setStorage('baseUrl', API.baseUrl)
+        // setStorage('baseUrl', API.baseUrl)
     },
     onShow() {
         console.log('首页onshow')

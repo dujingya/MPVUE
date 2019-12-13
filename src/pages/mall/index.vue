@@ -65,13 +65,11 @@
 import {
     encodeUrlParam
 } from '@/utils/urlTool'
-import * as API from '@/service/api'
 import fetch from '@/service/fetch'
 import {
     getStorage,
     setStorage
 } from '@/utils/wechat'
-import Config from '@/utils/config'
 import bindingphone from '@/components/bindingphone'
 import loading from '@/components/loading'
 export default {
@@ -265,8 +263,8 @@ export default {
             this.showLoading = true
             fetch({
                 method: 'POST',
-                baseUrl: API.baseUrl,
-                api: `${API.find}/${Config.orgCode}`,
+                baseUrl: '',
+                api: '',
                 contentType: 'application/json; charset=UTF-8',
                 params: params
             }).then(res => {
@@ -312,7 +310,7 @@ export default {
         }
     },
     created() {
-        setStorage('baseUrl', API.baseUrl)
+        // setStorage('baseUrl', API.baseUrl)
     },
     onShow() {
         this.clearData()

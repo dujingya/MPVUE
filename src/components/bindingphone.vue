@@ -41,16 +41,6 @@
 </template>
 
 <script>
-  // import {
-  //     encodeUrlParam
-  // } from '@/utils/urlTool'
-  import * as API from '@/service/api'
-  import fetch from '@/service/fetch'
-  // import {
-  //     login,
-  //     setStorage
-  // } from '@/utils/wechat'
-  // import Config from '@/utils/config'
   export default {
       // name: 'bindphone',
       props: [
@@ -137,8 +127,8 @@
               }
               fetch({
                   method: 'POST',
-                  baseUrl: API.baseUrl,
-                  api: API.phoneCode,
+                  baseUrl: '',
+                  api: '',
                   contentType: 'application/json; charset=UTF-8',
                   params: params
               }).then(res => {
@@ -172,8 +162,8 @@
                   }
                   fetch({
                       method: 'POST',
-                      baseUrl: API.baseUrl,
-                      api: API.userInfo,
+                      baseUrl: '',
+                      api: '',
                       contentType: 'application/json; charset=UTF-8',
                       params: params
                   }).then(res => {
